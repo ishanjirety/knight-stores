@@ -1,0 +1,62 @@
+.card{
+    width: 10rem;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    padding:0.5rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items:center;
+}
+.hero{
+    width:7.7rem;
+    height:10.6rem
+}
+.wishlist-btn{
+    position: absolute;
+    top:0rem;
+    right:1rem;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    padding: 0.3rem;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+.wishlist-btn svg{
+    width:1.5rem;
+}
+.card-heading{
+    width:90%;
+
+}
+.pricing{
+    display:flex;
+    column-gap: 0.2rem;
+    align-items:center;
+}
+.selling-price{
+    font-weight: bold;
+}
+.strike-through{
+    text-decoration: line-through;
+}
+.pricing p{
+    margin:0;
+}
+.primary-btn{
+    color:var(--primary-color);
+    font-weight: 300;
+    background-color:var(--secondary-color);
+    border:2px solid  #141414;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding:0.5rem 2rem;
+    transition:0.3s ease-in-out;
+}
+.primary-btn:hover{
+    background-color: var(--primary-color);
+    color:var(--secondary-color)
+}

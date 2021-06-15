@@ -1,0 +1,7 @@
+export { Home } from './Home'
+export { Cart } from './Cart'
+export { Splashscreen } from './Splashscreen'
+export { Settings } from './Settings'
+export { Login } from './Login'
+export { Signup } from './Signup'
+export { Wishlist } from './Wishlist'

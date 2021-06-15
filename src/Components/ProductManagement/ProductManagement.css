@@ -1,0 +1,35 @@
+.product-management{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    font-family: 'Noto Sans KR', sans-serif;
+    row-gap: 1rem;
+}
+.text-area{
+    display:flex;
+    flex-direction:column;
+    row-gap: 1rem;
+}
+.input{
+    border-radius: 0.1rem;
+    border: 1px solid var(--primary-color);
+    padding:0.5rem 0.3rem;
+    width:10rem;
+}
+.input:focus{
+    outline:transparent;
+}
+.input-div{
+    display:flex;
+    column-gap: 0.2rem;
+    align-items:center;
+}
+.btn-div{
+    display:flex;
+    column-gap: 0.2rem;
+    justify-content:center;
+}
+.input-div .input-checkbox{
+    width:1rem;
+}
