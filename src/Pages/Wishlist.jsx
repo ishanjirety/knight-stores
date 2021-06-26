@@ -41,7 +41,7 @@ export function Wishlist() {
                     {console.log(user.cart)}
                     {
                         user.wishlist.map((item) => {
-                            if (user.cart.find((cartItem) => (cartItem?.productId?._id).toString() === (item._id).toString())) {
+                            if (user.cart.find((cartItem) => (cartItem?.productId?._id)?.toString() === (item._id)?.toString())) {
                                 return <Card data={item} wishlistStatus={true} cartStatus={false} />
                             }
                             return <Card data={item} wishlistStatus={true}/>

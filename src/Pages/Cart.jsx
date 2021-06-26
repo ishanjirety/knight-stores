@@ -48,7 +48,7 @@ export function Cart() {
                     {console.log(user.cart)}
                     {
                         user.cart.map((item) => {
-                            if (user.wishlist.find((wishlistItem) => (wishlistItem?._id).toString() === (item.productId._id).toString())) {
+                            if (user.wishlist.find((wishlistItem) => (wishlistItem?._id)?.toString() === (item.productId._id)?.toString())) {
                                 console.log("here")
                                 return <Card data={item.productId} wishlistStatus={true} />
                             }

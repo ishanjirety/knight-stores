@@ -88,14 +88,14 @@ export function Home() {
                 {user?.products ? <div className="card-wrapper">
                     {user.products.map((items) => {
 
-                        if (user.cart.length > 0 || user.wishlist.length > 0) {
-                            if (user.cart.find((cartItem) => (items._id).toString() === (cartItem.productId._id).toString())) {
-                                if (user.wishlist.find((wishlistItem) => (items._id).toString() === (wishlistItem._id).toString())) {
+                        if (user.cart?.length > 0 || user.wishlist?.length > 0) {
+                            if (user.cart.find((cartItem) => (items._id)?.toString() === (cartItem.productId._id)?.toString())) {
+                                if (user.wishlist.find((wishlistItem) => (items._id)?.toString() === (wishlistItem._id)?.toString())) {
                                     return <Card data={items} wishlistStatus={true} cartStatus={true} />
                                 } else {
                                     return <Card data={items} wishlistStatus={false} cartStatus={true} />
                                 }
-                            } else if (user.wishlist.find((wishlistItem) => (items._id).toString() === (wishlistItem._id).toString())) {
+                            } else if (user.wishlist.find((wishlistItem) => (items._id)?.toString() === (wishlistItem._id)?.toString())) {
                                 return <Card data={items} wishlistStatus={true} cartStatus={false} />
                             }
                         }
