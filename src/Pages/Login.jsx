@@ -31,7 +31,6 @@ export function Login() {
                     signupDispatch({ type: "RESET" })
                     setLoader(false)
                     setIsUserLoggedin(true)
-                    console.log('saving token')
                     setToken(data.data.token)
                     userDispatch({ type: "REFRESH-WISHLISt", payload: data.data.wishlist })
                     userDispatch({ type: "REFRESH-CART", payload: data.data.cart })
@@ -63,7 +62,7 @@ export function Login() {
                 </div>
                 <div className="login-input">
                     <input className="input" placeholder="Username" value={signupState.username} onChange={(e) => signupDispatch({ type: "USERNAME", payload: e.target.value })} />
-                    <input className="input" placeholder="Password" value={signupState.password} onChange={(e) => signupDispatch({ type: "PASSWORD", payload: e.target.value })} />
+                    <input className="input" type="password" placeholder="Password" value={signupState.password} onChange={(e) => signupDispatch({ type: "PASSWORD", payload: e.target.value })} />
                 </div>
                 {!isLoader && <button className="primary-btn" onClick={Login}>Login</button>}
                 {isLoader && <button className="primary-btn">Login<div><img src={Loader} alt="" srcset="" /></div></button>}

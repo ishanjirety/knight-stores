@@ -41,7 +41,7 @@ export function Signup() {
                 </div>
                 <div className="login-input">
                     <input className="input" placeholder="Username" value={signupState.username} onChange={(e) => signupDispatch({ type: "USERNAME", payload: e.target.value })} />
-                    <input className="input" placeholder="Password" value={signupState.password} onChange={(e) => signupDispatch({ type: "PASSWORD", payload: e.target.value })} />
+                    <input className="input" type="password" placeholder="Password" value={signupState.password} onChange={(e) => signupDispatch({ type: "PASSWORD", payload: e.target.value })} />
                     <input className="input" placeholder="Email" value={signupState.email} onChange={(e) => signupDispatch({ type: "EMAIL", payload: e.target.value })} />
                     <input className="input" placeholder="Security Question" value={signupState.securityQuestion} onChange={(e) => signupDispatch({ type: "SECURITY-QUESTION", payload: e.target.value })} />
                     <input className="input" placeholder="Answer" value={signupState.answer} onChange={(e) => signupDispatch({ type: "ANSWER", payload: e.target.value })} />
