@@ -16,6 +16,7 @@
     align-items: center;
     color: var(--primary-color);
     z-index: 1;
+    cursor: pointer;
 }
 
 .logo {

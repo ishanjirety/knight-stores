@@ -1,9 +1,10 @@
 import "./Nav.css";
 import "./Responsive.css"
 import { NavLink } from 'react-router-dom'
-import { Wishlist, Home, Cart, Profile, Search, Settings } from '../../Svg'
+import { Wishlist, Home, Cart, Profile, Search, Settings, Logout } from '../../Svg'
 import { useRouteTag, useUser } from '../../Context'
 import { useState, useEffect } from 'react'
+import { removeToken, getToken } from '../../utils'
 export function Nav({ data }) {
       const { setRoute, route } = useRouteTag()
       const { user, userDispatch } = useUser()
@@ -14,18 +15,18 @@ export function Nav({ data }) {
       useEffect(() => {
             console.log(user.copyProducts)
             clearTimeout(timeOutRef)
-            if(query !== ""){
+            if (query !== "") {
                   const ref = setTimeout(() => {
                         userDispatch({ type: "REFRESH-PRODUCTS", payload: user.copyProducts })
                         userDispatch({ type: "SEARCH-PRODUCTS", payload: query })
                   }, 1000)
                   setTimeOutRef(ref)
             }
-            if(query === ""){
+            if (query === "") {
                   userDispatch({ type: "REFRESH-PRODUCTS", payload: user.copyProducts })
             }
       }, [query])
-      
+
       useEffect(() => {
             userDispatch({ type: "COPY-OF-PRODUCTS", payload: user.products })
             console.log(user)
@@ -57,10 +58,9 @@ export function Nav({ data }) {
                         <Wishlist />
                         {route === 'Wishlist' && <span></span>}
                   </NavLink>
-                  <NavLink to="/profile" className={route === "Profile" ? "nav-link focus" : "nav-link"} onClick={() => setRoute('Profile')} >
-                        <Profile />
-                        {route === 'Profile' && <span></span>}
-                  </NavLink>
+                 {getToken() && <NavLink to="/login" className="nav-link" onClick={() => removeToken()} >
+                        <Logout />
+                  </NavLink>}
                   {user?.userType === "admin" && <NavLink to="/settings" className={route === "Settings" ? "nav-link focus" : "nav-link"} onClick={() => setRoute('Settings')} >
                         <Settings />
                         {route === 'Settings' && <span></span>}
