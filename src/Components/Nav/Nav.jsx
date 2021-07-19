@@ -61,7 +61,7 @@ export function Nav({ data }) {
                  {getToken() && <NavLink to="/login" className="nav-link" onClick={() => removeToken()} >
                         <Logout />
                   </NavLink>}
-                  {user?.userType === "admin" && <NavLink to="/settings" className={route === "Settings" ? "nav-link focus" : "nav-link"} onClick={() => setRoute('Settings')} >
+                  {getToken() && user?.userType === "admin" && <NavLink to="/settings" className={route === "Settings" ? "nav-link focus" : "nav-link"} onClick={() => setRoute('Settings')} >
                         <Settings />
                         {route === 'Settings' && <span></span>}
                   </NavLink>}
