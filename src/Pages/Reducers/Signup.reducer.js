@@ -1,6 +1,6 @@
 export const signupInitialState = {
-    username:"",
-    password:"",
+    username:"admin",
+    password:"admin",
     email:"",
     securityQuestion:"",
     answer:""
@@ -9,7 +9,6 @@ export const signupInitialState = {
 export function SignupReducer(state, action) {
     switch (action.type) {
         case "USERNAME":
-            console.log(action.payload)
             return { ...state, username: action.payload }
         case "PASSWORD":
             return { ...state, password: action.payload }

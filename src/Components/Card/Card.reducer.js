@@ -1,13 +1,13 @@
 export function CardReducer(state, action) {
     switch (action.type) {
         case "REMOVE-CART":
-            return { ...state, cart: state.cart.filter((item) => item.productId._id !== action.payload) }
+            return { ...state, total: state.total - state.cart.find(e => e.productId._id === action.payload).productId.sellingPrice, cart: state.cart.filter((item) => item.productId._id !== action.payload) }
         case "REMOVE-WISHLIST":
             return { ...state, wishlist: state.wishlist.filter((item) => item._id !== action.payload._id) }
         case "ADD-WISHLIST":
             return { ...state, wishlist: [...state.wishlist, action.payload] }
         case "ADD-CART":
-            return { ...state, cart: [...state.cart, { productId: action.payload }] }
+            return { ...state, cart: [...state.cart, { productId: action.payload }], total: state.total + action.payload.sellingPrice }
         case "WISHLIST-ACTIVE":
             return { ...state, isWishlist: action.payload }
         case "CART-ACTIVE":
@@ -30,7 +30,8 @@ export function CardReducer(state, action) {
             return { ...state, products: state.products?.filter((item) => item.name.toLowerCase().includes(action.payload)) }
         case "COPY-OF-PRODUCTS":
             return { ...state, copyProducts: action.payload }
-
+        case "UPDATE-TOTAL":
+            return { ...state, total: action.payload }
         default:
             return state;
     }
@@ -42,5 +43,6 @@ export const CardInitialState = {
     isCart: false,
     products: [],
     userType: '',
-    copyProducts: []
+    copyProducts: [],
+    total: 0
 }

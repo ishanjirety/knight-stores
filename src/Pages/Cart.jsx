@@ -15,17 +15,20 @@ export function Cart() {
     const { userDispatch, user } = useUser()
     console.log(user)
     const navigate = useNavigate()
-    const [total, setTotal] = useState(0)
     useEffect(async () => {
         const token = getToken()
         try {
             const CART_URI = process.env.REACT_APP_CART
             const WISHLIST_URI = process.env.REACT_APP_WISHLIST
             if (token) {
+                let total = 0
                 const { data } = await axios.get(`${CART_URI}`, { headers: { authorization: token } })
-                data.data.forEach((item) => setTotal((total) => total + item.productId.sellingPrice))
+                data.data.forEach((item) => {
+                    return total = total + item.productId.sellingPrice
+                })
                 const wishlistResponse = await axios.get(`${WISHLIST_URI}`, { headers: { authorization: token } })
-                // setUser((user) => { return { ...user, cart: data.data, userType: data.userType, wishlist: wishlistResponse.data.wishlist } })
+
+                userDispatch({ type: "UPDATE-TOTAL", payload: total })
                 userDispatch({ type: "REFRESH-WISHLIST", payload: wishlistResponse.data.wishlist })
                 userDispatch({ type: "REFRESH-CART", payload: data.data })
             }
@@ -33,14 +36,16 @@ export function Cart() {
             console.log(e.message)
             navigate('/login')
         }
-
     }, [])
-    useEffect(()=>console.log("in effec"),[user])
+
+    // useEffect(()=>{
+    //     user.cart.forEach((item) => setTotal((total) => total + item.productId.sellingPrice))
+    // },[user])
 
 
     return (
         <div className="page">
-            <div className="header-wrapper" style={{ paddingBottom: "0.6rem" }} onClick={()=>navigate('/')} >
+            <div className="header-wrapper" style={{ paddingBottom: "0.6rem" }} onClick={() => navigate('/')} >
                 <p className="heading"><img src={Logo} className="logo" alt="" /><img src={LogoLight} className="logo-light" alt="" />KnightStores</p>
             </div>
             <div className="cart-wrapper">
@@ -62,7 +67,7 @@ export function Cart() {
                         <p><strong>Total Items</strong> <p>{user?.cart?.length}</p></p>
                         <p><strong>Total Discount</strong> <p>0</p></p>
                         <div></div>
-                        <h3><strong>Grand Total</strong> <p>{total}</p></h3>
+                        <h3><strong>Grand Total</strong> <p>{user.total}</p></h3>
                     </div>
                     <button className="primary-btn">Proceed to pay</button>
                 </div>
