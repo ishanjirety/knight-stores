@@ -47,7 +47,7 @@ export function Wishlist() {
                             return <Card data={item} wishlistStatus={true}/>
                         })
                     }
-                </div> : <div className="banner-wrapper"><img src={EmptyCart} className="banner" alt="" /><h1>Your cart is empty...</h1></div>}
+                </div> : <div className="banner-wrapper"><img src={EmptyCart} className="banner" alt="" /><h1>Your wishlist is empty...</h1></div>}
             </div>
         </div>
     )

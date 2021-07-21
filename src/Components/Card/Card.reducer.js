@@ -32,6 +32,8 @@ export function CardReducer(state, action) {
             return { ...state, copyProducts: action.payload }
         case "UPDATE-TOTAL":
             return { ...state, total: action.payload }
+        case "CLEAR-CART":
+            return {...state,cart:[]}
         default:
             return state;
     }

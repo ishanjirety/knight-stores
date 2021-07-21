@@ -49,7 +49,6 @@ export function Card({ data, wishlistStatus, cartStatus }) {
         try {
             if (!isWishlist) {
                 const response = await axios.post(`${WISHLIST_URI}`, { _id: _id }, { headers: { authorization: token } })
-                console.log("BEFORE",user.wishlist)
                 userDispatch({ type: "ADD-WISHLIST", payload: data })
                 console.log("AFTER",user.wishlist)
                 setWishlist(true)
@@ -61,7 +60,6 @@ export function Card({ data, wishlistStatus, cartStatus }) {
                     },
                     data: { _id: _id }
                 })
-                console.log("BEFORE",user.wishlist)
                 userDispatch({ type: "REMOVE-WISHLIST", payload: data })
                 console.log("AFTER",user.wishlist)
                 setWishlist(false)
