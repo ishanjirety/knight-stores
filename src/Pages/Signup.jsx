@@ -23,9 +23,7 @@ export function Signup() {
                     setLoader(false)
                     navigate('/login')
                 }
-            } catch (e) {
-                console.log(e.message)
-            }
+            } catch (e) {}
         }
     }
 

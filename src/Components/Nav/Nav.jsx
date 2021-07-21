@@ -13,7 +13,6 @@ export function Nav({ data }) {
 
       // Debounce
       useEffect(() => {
-            console.log(user.copyProducts)
             clearTimeout(timeOutRef)
             if (query !== "") {
                   const ref = setTimeout(() => {
@@ -29,7 +28,6 @@ export function Nav({ data }) {
 
       useEffect(() => {
             userDispatch({ type: "COPY-OF-PRODUCTS", payload: user.products })
-            console.log(user)
       }, [user.copyProduct])
 
       return (

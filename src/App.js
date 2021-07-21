@@ -30,7 +30,6 @@ function App() {
         setIsUserLoggedin(true)
         const PRODUCT_URI = process.env.REACT_APP_PRODUCTS
         const PRODUCT = await axios.get(`${PRODUCT_URI}`, { headers: { authorization: token } })
-        console.log(PRODUCT)
         const CART = await axios.get(`${CART_URI}`, { headers: { authorization: token } })
         const WISHLIST = await axios.get(`${WISHLIST_URI}`, { headers: { authorization: token } })
         userDispatch({ type: "REFRESH-CART", payload: CART.data.data })

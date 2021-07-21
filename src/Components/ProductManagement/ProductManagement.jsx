@@ -25,7 +25,6 @@ export function ProductManagement() {
                 setLoader(false)
                 ProductManagementDispatch({type:"RESET"})
             } catch (e) {
-                console.log(e.Loader)
                 setLoader(false)
             }
 

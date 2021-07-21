@@ -21,12 +21,10 @@ export function Wishlist() {
             if (token) {
                 const { data } = await axios.get(`${CART_URI}`, { headers: { authorization: token } })
                 const wishlistResponse = await axios.get(`${WISHLIST_URI}`, { headers: { authorization: token } })
-                console.log(wishlistResponse.data.wishlist)
                 userDispatch({ type: "REFRESH-WISHLIST", payload: wishlistResponse.data.wishlist })
                 userDispatch({ type: "REFRESH-CART", payload: data.data })
             }
         } catch (e) {
-            console.log(e.message)
             navigate('/login')
         }
     }, [])
@@ -38,7 +36,6 @@ export function Wishlist() {
             </div>
             <div className="cart-wrapper">
                 {user?.wishlist?.length > 0 ? <div className="card-wrapper cart">
-                    {console.log(user.cart)}
                     {
                         user.wishlist.map((item) => {
                             if (user.cart.find((cartItem) => (cartItem?.productId?._id)?.toString() === (item._id)?.toString())) {

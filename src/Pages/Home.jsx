@@ -49,7 +49,6 @@ export function Home() {
     function handleSlider(e){
         userDispatch({type:"REFRESH-PRODUCTS",payload:product})
         setSlider(parseInt(e.target.value,10))
-        console.log(parseInt(e.target.value,10))
         userDispatch({type:"PRICE-RANGE",payload:slider})
     }
     return (

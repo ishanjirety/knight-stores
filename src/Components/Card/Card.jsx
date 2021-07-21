@@ -37,7 +37,6 @@ export function Card({ data, wishlistStatus, cartStatus }) {
             setLoader(false)
         } catch (e) {
             setLoader(false)
-            console.log(e.message)
         }
     }
 
@@ -50,7 +49,6 @@ export function Card({ data, wishlistStatus, cartStatus }) {
             if (!isWishlist) {
                 const response = await axios.post(`${WISHLIST_URI}`, { _id: _id }, { headers: { authorization: token } })
                 userDispatch({ type: "ADD-WISHLIST", payload: data })
-                console.log("AFTER",user.wishlist)
                 setWishlist(true)
             } else {
                 setLoader(true)
@@ -61,14 +59,12 @@ export function Card({ data, wishlistStatus, cartStatus }) {
                     data: { _id: _id }
                 })
                 userDispatch({ type: "REMOVE-WISHLIST", payload: data })
-                console.log("AFTER",user.wishlist)
                 setWishlist(false)
                 setLoader(false)
             }
 
         } catch (e) {
             setLoader(false)
-            console.log(e.message)
         }
     }
 
@@ -85,7 +81,6 @@ export function Card({ data, wishlistStatus, cartStatus }) {
         }
         catch (e) {
             setLoader(false)
-            console.log(e.message)
         }
     }
     return (

@@ -49,8 +49,6 @@ export function Cart() {
             amount: total
         })
 
-        console.log(data)
-
         const options = {
             key: process.env.REACT_APP_RZP_KEY_ID,
             currency: data.currency,
@@ -58,7 +56,7 @@ export function Cart() {
             order_id: data.id,
             name: 'KnightStores',
             description: 'Thank you for your purchase',
-            image: 'http://localhost:3000/Logo.svg',
+            image: 'https://knight-store.netlify.app/Logo.svg',
             handler: async function () {
                 const response = await axios.delete(`${CART_URI}/all`, {
                     headers: { authorization: token },
@@ -94,7 +92,6 @@ export function Cart() {
                 userDispatch({ type: "REFRESH-CART", payload: data.data })
             }
         } catch (e) {
-            console.log(e.message)
             navigate('/login')
         }
     }, [])
@@ -107,11 +104,9 @@ export function Cart() {
             </div>
             <div className="cart-wrapper">
                 {user?.cart?.length > 0 ? <div className="card-wrapper cart">
-                    {console.log(user.cart)}
                     {
                         user.cart.map((item) => {
                             if (user.wishlist.find((wishlistItem) => (wishlistItem?._id)?.toString() === (item.productId._id)?.toString())) {
-                                console.log("here")
                                 return <Card data={item.productId} wishlistStatus={true} />
                             }
                             return <Card data={item.productId} />
