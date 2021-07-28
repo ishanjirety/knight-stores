@@ -1,0 +1,122 @@
+@media only screen and (min-width: 768px) {
+    .header-wrapper svg {
+        display: none;
+    }
+
+    .header-wrapper {
+        color: #fff;
+        border-image: none !important;
+        background-color: var(--primary-color);
+        height: 4rem;
+        width: 10%;
+        border: none;
+    }
+
+    .heading {
+        color: white;
+        padding-top: 1rem
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .logo-light {
+        display: block;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        justify-content: center;
+    }
+
+    .filter-area {
+        width: 20%;
+        margin: 5rem 1rem 0 5rem;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--secondary-color);
+        width: 20rem;
+        height: 10rem;
+        border-radius: 1rem;
+        padding-top: 1rem;
+        position: fixed;
+        left:-5rem;
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .filter-area .header-wrapper {
+        display: none;
+    }
+
+    .card-wrapper {
+        display: grid;
+        grid-template-columns: 0.75fr 0.75fr 0.75fr;
+        width: 90%;
+        padding-left: 20rem;
+        column-gap: 0rem;
+    }
+    .wrapper .loader{
+        align-self: center;
+    }
+    .options {
+        width: 90%;
+    }
+
+    .filter-area .range-slider {
+        width: 90%;
+        padding-left: 1rem;
+    }
+
+    .filter-area .checkbox-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 1rem;
+    }
+
+    .filter-area .checkbox {
+        margin: 0;
+    }
+    .cart-wrapper{
+        display:flex;
+        flex-direction:row;
+        align-items:flex-start;
+        height:100vh;
+        width: 100vw !important;
+    }
+    .total-area{
+        padding-top:4rem;
+        width:25rem;
+        right: 0;
+    }
+    .cart{
+        padding-left: 1rem !important; 
+    }
+    .details{
+        width:100%;
+        justify-content:center;
+    }
+    .login-wrapper{
+        width:25rem;
+    }
+    .product-management{
+        margin-top:5rem;
+    }
+    .product-management .heading{
+        color: var(--primary-color)
+    }
+    .sidebar{
+        margin-top: 4rem;
+    }
+    .banner-wrapper{
+        align-self: center;
+        width:100%;
+        margin-top: 0rem;
+        display: flex;
+        flex-direction:column;
+        align-items:center;
+    }
+    
+}
