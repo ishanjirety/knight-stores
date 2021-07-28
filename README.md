@@ -1,5 +1,10 @@
-# Welcome to KnightStores
-## This is a platform is dedicated to chess enthusiasts. Here users can find chess accessories to enhance their playing experience
+<p align="center">
+<img src="https://knight-store.netlify.app/static/media/Logo-light.7d313a12.svg" width="20%"/></p>
+</p>
+
+<h1 align="center">Welcome to KnightStores</h1>
+
+## This is a platform is dedicated to chess enthusiasts. Here users can find chess accessories to enhance their playing experience.
 
 
 ### Test Credentials 
